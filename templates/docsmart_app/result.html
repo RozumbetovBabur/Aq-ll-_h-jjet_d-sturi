@@ -1,0 +1,19 @@
+{% extends 'docsmart_app/base.html' %}
+{% block content %}
+<div class="row">
+<div class="col-md-8">
+<h3>Náteji</h3>
+<div class="card mb-3">
+<div class="card-body">
+<h5>{{ doc.title }}</h5>
+<p><strong>Hújjet turi:</strong> {{ doc.label }} {% if doc.confidence %} ({{ doc.confidence|floatformat:2 }}){% endif %}</p>
+<h6>Juwmaq</h6>
+<p>{{ doc.summary }}</p>
+<h6>Ajratıp alınǵan text</h6>
+<pre style="white-space: pre-wrap;">{{ doc.extracted_text }}</pre>
+</div>
+</div>
+<a class="btn btn-secondary" href="/list/">Dizimge qaytıw</a>
+</div>
+</div>
+{% endblock %}

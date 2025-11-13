@@ -1,0 +1,28 @@
+{% extends 'docsmart_app/base.html' %}
+{% block content %}
+<h3>Dizimge alınǵan hújjetler</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>hújjet atı</th>
+      <th>hújjet turi</th>
+      <th>Jaratılǵan waqtı</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for d in docs %}
+    <tr>
+      <td>{{ d.pk }}</td>
+      <td>{{ d.title|default:"(no title)" }}</td>
+      <td>{{ d.label|default:"-" }}</td>
+      <td>{{ d.created_at|date:"Y-m-d H:i" }}</td>
+      <td><a class="btn btn-sm btn-outline-primary" href="{% url 'result' d.pk %}">hújjetdi kóriw</a></td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="5">Buday hujjet hazir jaratılmaǵan.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
